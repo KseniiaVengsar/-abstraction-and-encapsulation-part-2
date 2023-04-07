@@ -22,7 +22,7 @@ public:
     std::string getCityName() const {
         return city_name;
     }
-    void sortAddresses(address* mas, int N);
+   
 private:
 
     std::string city_name;
@@ -37,7 +37,7 @@ std::string address::outAddress()
     return city_name + ", " + street_name + ", " + std::to_string(house_number) + ", " + std::to_string(apartment_number);
 }
 
-void address::sortAddresses(address* mas, int N)
+void sortAddresses(address* mas, int N)
 {
     std::sort(mas, mas + N, [](const address& a, const address& b) {
         return a.getCityName() < b.getCityName();
@@ -47,7 +47,7 @@ void address::sortAddresses(address* mas, int N)
 int main()
 {
     setlocale(LC_ALL, "RU");
-    address info;
+
     std::string a, b;
     int c = 0; int d = 0;
 
@@ -80,7 +80,7 @@ int main()
             mas[i].setINFO(a, b, c, d);
         }
 
-       info.sortAddresses(mas, N);
+       sortAddresses(mas, N);
 
         for (int i = 0; i < N; i++)
         {
@@ -92,8 +92,6 @@ int main()
         delete[]mas;
     }
     return 0;
-
-}
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
